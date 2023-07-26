@@ -1,5 +1,6 @@
 package com.easyai.forfree;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @ProjectName easyai
  */
 @SpringBootApplication
+@MapperScan("com.easyai.forfree.mapper")
 public class EasyaiApplication {
 
     public static void main(String[] args) {

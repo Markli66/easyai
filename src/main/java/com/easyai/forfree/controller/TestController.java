@@ -1,6 +1,11 @@
 package com.easyai.forfree.controller;
 
+import com.easyai.forfree.common.Result;
+import com.easyai.forfree.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @ProjectName easyai
  */
 @RestController
+@RequestMapping("/system")
 public class TestController {
+    @Autowired
+    private UserService userService;
 
-    @GetMapping(value = "/helloworld")
-    public String hello(){
-        return "helloWorld";
+   @RequestMapping(method = RequestMethod.POST,value = "/login",name = "用户登录")
+    public Result hello() {
+        return Result.success(userService.list());
     }
 }
